@@ -7,6 +7,7 @@ const Add = ({handleFilm}) => {
      const[rating,setRating] = useState(0)
      const[synopsis,setSynopsis] = useState("")
      const[posterurl,setPosterurl] = useState("")
+     const [trailer,setTrailer]= useState("")
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
   
@@ -38,9 +39,14 @@ const Add = ({handleFilm}) => {
     <Form.Label>ImageURL</Form.Label>
     <Form.Control type="texte" placeholder="Enter URL"  onChange={(e)=>setPosterurl(e.target.value)}/>
   </Form.Group>
+  <Form.Group className="mb-3" >
+    <Form.Label>Film Trailer</Form.Label>
+    <Form.Control type="texte" placeholder="Enter trailer Url" onChange={(e)=>setTrailer(e.target.value)} />
+  </Form.Group>
   <Form.Group className="mb-3" controlId="formBasicCheckbox">
     <Form.Check type="checkbox" label="Check me out" />
   </Form.Group>
+  
   
   
 </Form></Modal.Body>
@@ -48,7 +54,7 @@ const Add = ({handleFilm}) => {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={()=>{ handleFilm ({title,synopsis,rating,posterurl});handleClose()}}>
+            <Button variant="primary" onClick={()=>{ handleFilm ({title,synopsis,rating,posterurl,trailer,id: Math.random()});handleClose()}}>
               Save Changes
             </Button>
           </Modal.Footer>

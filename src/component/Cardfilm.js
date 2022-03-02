@@ -6,8 +6,13 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
+import {Link} from "react-router-dom" 
+
 const Cardfilm=({fil}) => {
+
   return (
+    <Link to={`/trailer/${fil.id}`}>
+    
     <Card  sx={{ maxWidth: 345}}>
       <CardMedia 
         component="img"
@@ -28,6 +33,7 @@ const Cardfilm=({fil}) => {
         <Rating name="read-only" value={fil.rating} readOnly />
       </CardActions>
     </Card>
+  </Link>
   );
 }
 export default  Cardfilm
